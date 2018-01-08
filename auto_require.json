@@ -292,8 +292,8 @@
             "name": "Twig",
             "version": "2.4.4",
             "vendor": "twig",
-			"autoloading": "psr-0",
-			"replace_name": "Twig"
+            "autoloading": "psr-0",
+            "replace_name": "Twig"
         }, {
             "namespace": "Webmozart\\Assert",
             "dir": "/webmozart/assert/src",
