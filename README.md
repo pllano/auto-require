@@ -54,16 +54,18 @@ $require->addNamespace('ApiShop', __DIR__ . '/app/classes');
 - `name` - Название директории пакета
 - `vendor` - Название директории вендора
 - `version` - Версия пакета
+ 
+После распаковки архива с github директория пакета имеет название class-name-1.0.1
 ```json
 {
     "require": [
         {
-            "namespace": "Vendor\\NameClass",
-            "dir": "/vendor/name-class/src",
-            "link": "https://github.com/vendor/name-class/archive/1.0.1.zip",
-            "name": "name-class",
+            "namespace": "VendorName\\ClassName",
+            "dir": "/vendor-name/class-name/src",
+            "link": "https://github.com/vendor-name/class-name/archive/1.0.1.zip",
+            "name": "class-name",
             "version": "1.0.1",
-            "vendor": "vendor"
+            "vendor": "vendor-name"
         }
     ]
 }
