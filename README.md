@@ -40,7 +40,7 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
 {
     "require": [
         {
-            "namespace": "Vendor\NameClass",
+            "namespace": "Vendor\\NameClass",
             "dir": "/vendor/name-class/src",
             "link": "https://github.com/vendor/name-class/archive/1.0.1.zip",
             "name": "name-class",
