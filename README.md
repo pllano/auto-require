@@ -8,15 +8,15 @@
 ## Использование
 Для AutoRequire необходимо указать диреторию `vendor_dir` и ссылку на файл `auto_require.json`
 ```php
-require __DIR__ . '/vendor/AutoRequire.php';
+require __DIR__ . '/../vendor/AutoRequire.php';
  
 $require = new \AutoRequire\Autoloader;
  
 // Указываем путь к папке vendor
-$vendor_dir = __DIR__ . '/vendor';
+$vendor_dir = __DIR__ . '/../vendor';
  
 // Указываем путь к auto_require.json
-$json_uri = __DIR__ . '/vendor/auto_require_master.json';
+$json_uri = __DIR__ . '/../vendor/auto_require_master.json';
  
 // Запускаем проверку или загрузку пакетов
 $require->run($vendor_dir, $json_uri);
@@ -24,8 +24,8 @@ $require->run($vendor_dir, $json_uri);
 Тоже самое с минимумом кода
 ```php
  
-require __DIR__ . '/vendor/AutoRequire.php';
-(new \AutoRequire\Autoloader)->run(__DIR__ . '/vendor', __DIR__ . '/vendor/auto_require_master.json');
+require __DIR__ . '/../vendor/AutoRequire.php';
+(new \AutoRequire\Autoloader)->run(__DIR__ . '/../vendor', __DIR__ . '/../vendor/auto_require_master.json');
  
 ```
 Если необходимо подключить локальные пакеты из другой директории, укажите их явно
