@@ -1,5 +1,5 @@
 # auto-require
-AutoRequire - Автоматическая загрузка пакетов согласно PSR4 без Composer
+AutoRequire - Автоматическая загрузка пакетов согласно PSR4 если autoload.php от Composer недоступен
 ## Использование
 ```php
 // Подключаем \AutoRequire\Autoloader
@@ -79,7 +79,7 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     
 }
 ```
-
+## public function run
 ```php
 // Ссылка на резервный файл auto_require.json
 protected $file_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
