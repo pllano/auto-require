@@ -59,6 +59,17 @@ $require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
     ]
 }
 ```
+Подключить файл
+```json
+{
+    "require": [
+        {
+            "files": "file_name.php",
+            "dir": "/your-name/your-dir"
+        }
+    ]
+}
+```
 ## auto_require.json
 - `namespace` - Пространство имен
 - `files` - Название файла
