@@ -29,6 +29,10 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     }
 }
 ```
+Подключаем локальные пакеты
+```php
+$require->addNamespace('ApiShop', __DIR__ . '/app/classes');
+```
 ## auto_require.json
 - `namespace` - Пространство имен
 - `dir` - Директория в которой после распаковки архива будут файлы пакета
@@ -55,9 +59,6 @@ https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
 {
     "require": [
         {
-            "namespace": "ApiShop",
-            "dir": "/pllano/api-shop"
-        }, {
             "namespace": "jsonDb",
             "dir": "/pllano/json-db/src",
             "link": "https://github.com/pllano/json-db/archive/1.0.7.zip",
