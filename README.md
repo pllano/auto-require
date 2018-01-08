@@ -136,7 +136,7 @@ $require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
     ]
 }
 ```
-### `auto_require.json` для API Shop
+### Пример `auto_require.json`
 [`auto_require.json`](https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json) для API Shop
 
 ```json
