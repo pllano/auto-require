@@ -30,11 +30,7 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 (new \AutoRequire\Autoloader)->run(__DIR__ . '/../vendor', __DIR__ . '/../vendor/auto_require_master.json');
  
 ```
-Если необходимо подключить локальные пакеты из другой директории, укажите их явно
-```php
-$require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
-```
-или переместите в директорию vendor_dir и подключите из auto_require.json
+Если необходимо подключить локальные пакеты, переместите их в директорию vendor_dir и подключите из auto_require.json
 ```json
 {
     "require": [
