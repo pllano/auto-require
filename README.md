@@ -55,6 +55,9 @@ https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
 {
     "require": [
         {
+            "namespace": "ApiShop",
+            "dir": "/pllano/api-shop"
+        }, {
             "namespace": "jsonDb",
             "dir": "/pllano/json-db/src",
             "link": "https://github.com/pllano/json-db/archive/1.0.7.zip",
