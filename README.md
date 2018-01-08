@@ -18,7 +18,7 @@ $vendor_dir = __DIR__ . '/../vendor';
 // Указываем путь к auto_require.json
 $json_uri = __DIR__ . '/../vendor/auto_require_master.json';
  
-// Запускаем проверку или загрузку пакетов
+// Запускаем автозагрузку
 $require->run($vendor_dir, $json_uri);
 ```
 Тоже самое с минимумом кода
