@@ -44,9 +44,20 @@ if (!file_exists(__DIR__ . '/../vendor/autoload.php')){
 ```
 Для AutoRequire необходимо указать диреторию vendor_dir и ссылку на файл auto_require.json
 
-Если необходимо подключить локальные пакеты из другой директории, укажите их явно, или переместите в директорию vendor_dir
+Если необходимо подключить локальные пакеты из другой директории, укажите их явно
 ```php
-$require->addNamespace('ApiShop', __DIR__ . '/app/classes');
+$require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
+```
+или переместите в директорию vendor_dir и подключите из auto_require.json
+```json
+{
+    "require": [
+        {
+            "namespace": "YourName\\YourClass",
+            "dir": "/your-name/your-class"
+        }
+    ]
+}
 ```
 ## auto_require.json
 - `namespace` - Пространство имен
