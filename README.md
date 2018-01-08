@@ -94,6 +94,23 @@ $require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
     ]
 }
 ```
+## Стандарты автозагрузки PSR-0 + PSR-4
+Добавлена поддержка стандарта автозагрузки PSR-0
+```json
+{
+    "require": [
+        {
+            "namespace": "Twig",
+            "dir": "/twig/Twig/lib/Twig",
+            "link": "https://github.com/twigphp/Twig/archive/v2.4.4.zip",
+            "name": "Twig",
+            "version": "2.4.4",
+            "vendor": "twig",
+            "autoloading": "psr-0"
+        }
+    ]
+}
+```
 https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
 ```json
 {
@@ -134,6 +151,14 @@ https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
             "name": "guzzle",
             "version": "6.3.0",
             "vendor": "guzzlehttp"
+        }, {
+            "namespace": "Twig",
+            "dir": "/twig/Twig/lib/Twig",
+            "link": "https://github.com/twigphp/Twig/archive/v2.4.4.zip",
+            "name": "Twig",
+            "version": "2.4.4",
+            "vendor": "twig",
+            "autoloading": "psr-0"
         }
     ]
 }
