@@ -8,63 +8,23 @@
 ## Использование
 Для AutoRequire необходимо указать диреторию `vendor_dir` и ссылку на файл `auto_require.json`
 ```php
-// Подключаем \AutoRequire\Autoloader
-// Connect \AutoRequire\Autoloader
- 
 require __DIR__ . '/vendor/AutoRequire.php';
  
-// instantiate the loader
-// Создать экземпляр загрузчика
 $require = new \AutoRequire\Autoloader;
  
-// register the autoloader
-// Зарегистрировать автозагрузчик
-$require->register();
+// Указываем путь к папке vendor
+$vendor_dir = __DIR__ . '/vendor';
  
-// Проверяем доступность autoload.php
-// Check Availability autoload.php
-if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+// Указываем путь к auto_require.json
+$json_uri = __DIR__ . '/vendor/auto_require_master.json';
  
-    require __DIR__ . '/../vendor/autoload.php';
- 
-} else {
-    // Если autoload.php не найден, подключаем автозагрузчик пакетов
- 
-    // Указываем путь к папке vendor
-    $vendor_dir = __DIR__ . '/vendor';
- 
-    // Указываем путь к auto_require.json
-    $json_uri = __DIR__ . '/vendor/auto_require.json';
- 
-    // Запускаем проверку или загрузку пакетов
-    $load = $require->run($vendor_dir, $json_uri);
- 
-    if (count($load) >= 1) {
-        foreach($load as $value)
-        {
- 
-            if (isset($value["files"]) && isset($value["dir"])) {
-                // Подключаем файл если этого требует пакет
-                require $vendor_dir.''.$value["dir"].'/'.$value["files"];
-            }
- 
-            if (isset($value["autoloading"])&& isset($value["replace_name"]) && isset($value["dir"])) {
- 
-                if ($value["autoloading"] == "psr-0") {
-                    // Регистрируем базовый каталог и префикс пространства имен PSR-0
-                    $require->setAutoloading($value["replace_name"], $vendor_dir.''.$value["dir"]);
-                }
- 
-            } elseif (isset($value["namespace"]) && isset($value["dir"])) {
- 
-                // Регистрируем базовый каталог и префикс пространства имен PSR-4
-                // register the base directories for the namespace prefix
-                $require->addNamespace($value["namespace"], $vendor_dir.''.$value["dir"]);
- 
-            }
-        }
-    }
-}
+// Запускаем проверку или загрузку пакетов
+$require->run($vendor_dir, $json_uri);
+```
+Тое самое с минимумом кода
+```php
+require __DIR__ . '/vendor/AutoRequire.php';
+(new \AutoRequire\Autoloader)->run(__DIR__ . '/vendor', __DIR__ . '/vendor/auto_require_master.json');
 ```
 Если необходимо подключить локальные пакеты из другой директории, укажите их явно
 ```php
