@@ -136,8 +136,8 @@ $require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
     ]
 }
 ```
-### auto_require.json для API Shop
-https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
+### `auto_require.json` для API Shop
+[`auto_require.json`](https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json) для API Shop
 
 ```json
 {
@@ -190,6 +190,98 @@ https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
     ]
 }
 ```
+### Загружайте из `master` репозиториев [`auto_require_master.json`](https://raw.githubusercontent.com/pllano/auto-require/master/auto_require_master.json)
+
+```json
+{
+    "require": [
+        {
+            "namespace": "jsonDB",
+            "dir": "/pllano/json-db/src",
+            "link": "https://github.com/pllano/json-db/archive/master.zip",
+            "name": "json-db",
+            "version": "master",
+            "vendor": "pllano"
+        }, {
+            "namespace": "RouterDb",
+            "dir": "/pllano/router-db/src",
+            "link": "https://github.com/pllano/router-db/archive/master.zip",
+            "name": "router-db",
+            "version": "master",
+            "vendor": "pllano"
+        }, {
+            "namespace": "Psr\\Http\\Message",
+            "dir": "/psr/http-message/src",
+            "link": "https://github.com/php-fig/http-message/archive/master.zip",
+            "name": "http-message",
+            "version": "master",
+            "vendor": "psr"
+        }, {
+            "namespace": "Psr\\Container",
+            "dir": "/psr/container/src",
+            "link": "https://github.com/php-fig/container/archive/master.zip",
+            "name": "container",
+            "version": "master",
+            "vendor": "psr"
+        }, {
+            "namespace": "Psr\\Log",
+            "dir": "/psr/log/Psr/Log",
+            "link": "https://github.com/php-fig/log/archive/master.zip",
+            "name": "log",
+            "version": "master",
+            "vendor": "psr"
+        }, {
+            "namespace": "Defuse\\Crypto",
+            "dir": "/defuse/php-encryption/src",
+            "link": "https://github.com/defuse/php-encryption/archive/master.zip",
+            "name": "php-encryption",
+            "version": "master",
+            "vendor": "defuse"
+        }, {
+            "namespace": "GuzzleHttp",
+            "files": "functions_include.php",
+            "dir": "/guzzlehttp/guzzle/src",
+            "link": "https://github.com/guzzle/guzzle/archive/master.zip",
+            "name": "guzzle",
+            "version": "master",
+            "vendor": "guzzlehttp"
+        }, {
+            "namespace": "GuzzleHttp\\Promise",
+            "files": "functions_include.php",
+            "dir": "/guzzlehttp/promises/src",
+            "link": "https://github.com/guzzle/promises/archive/master.zip",
+            "name": "promises",
+            "version": "master",
+            "vendor": "guzzlehttp"
+        }, {
+            "namespace": "GuzzleHttp\\Psr7",
+            "files": "functions_include.php",
+            "dir": "/guzzlehttp/psr7/src",
+            "link": "https://github.com/guzzle/psr7/archive/master.zip",
+            "name": "psr7",
+            "version": "master",
+            "vendor": "guzzlehttp"
+        }, {
+            "namespace": "Twig",
+            "dir": "/twig/Twig/lib/Twig",
+            "link": "https://github.com/twigphp/Twig/archive/master.zip",
+            "name": "Twig",
+            "version": "master",
+            "vendor": "twig",
+            "autoloading": "psr-0",
+            "replace_name": "Twig"
+        }, {
+            "namespace": "Slim",
+            "dir": "/slim/Slim/Slim",
+            "link": "https://github.com/slimphp/Slim/archive/3.x.zip",
+            "name": "Slim",
+            "version": "3.x",
+            "vendor": "slim"
+        }
+    ]
+}
+```
+
 <a name="feedback"></a>
 ## Поддержка, обратная связь, новости
 Общайтесь с нами через почту open.source@pllano.com
