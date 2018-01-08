@@ -101,6 +101,7 @@ https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
             "vendor": "defuse"
         }, {
             "namespace": "GuzzleHttp",
+            "files": "functions_include.php",
             "dir": "/guzzlehttp/guzzle/src",
             "link": "https://github.com/guzzle/guzzle/archive/6.3.0.zip",
             "name": "guzzle",
