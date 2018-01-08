@@ -30,6 +30,12 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
 }
 ```
 ## auto_require.json
+- `namespace` - Пространство имен
+- `dir` - Директория в которой после распаковки архива будут файлы пакета
+- `link` - Прямая ссылка на zip архив пакета
+- `name` - Название
+- `version` - Версия пакета
+- `vendor` - Вендор
 ```json
 {
     "require": [
