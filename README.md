@@ -18,13 +18,13 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     $vendor = __DIR__ . '/vendor';
     // Указываем путь к auto_require.json
     $json = __DIR__ . '/vendor/auto_require.json';
- 
+    // Запускаем проверку или загрузку пакетов
     $load = $require->run($vendor, $json);
     if (count($load) >= 1) {
         foreach($load as $value)
         {
             // Регистрируем базовые каталоги и префиксы пространства имен
-            $require->addNamespace($value["class"], $vendor.''.$value["dir"]);
+            $require->addNamespace($value["namespace"], $vendor.''.$value["dir"]);
         }
     }
 }
