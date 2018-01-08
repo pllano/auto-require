@@ -39,7 +39,7 @@ require __DIR__ . '/../my_folder/AutoRequire.php';
  
 $require = new \AutoRequire\Autoloader;
  
-// Указываем путь к папке vendor
+// Указываем путь к папке где вы будете хранить классы
 $my_folder = __DIR__ . '/../my_folder';
  
 // Указываем путь к auto_require.json
