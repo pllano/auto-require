@@ -75,17 +75,21 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
 ```
 
 ```php
-    public function run($dir = null, $json = null)
+// Ссылка на резервный файл auto_require.json
+protected $file_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
+ 
+    public function run($dir = null, $json = null, $file_get = null)
     {
         if ($dir != null && $json != null) {
             
             if (!file_exists($dir)) {
                 mkdir($dir, 0777, true);
             }
-            if (!file_exists($json)) {
-                file_put_contents($json, 
-                   file_get_contents("https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json")
-                );
+            if ($file_get != null) {
+                $this->file_get = $file_get;
+            }
+            if (!file_exists($json) && $this->file_get != null) {
+                file_put_contents($json, file_get_contents($this->file_get));
             }
  
             $require = array();
