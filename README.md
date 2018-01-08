@@ -23,8 +23,10 @@ $require->run($vendor_dir, $json_uri);
 ```
 Тоже самое с минимумом кода
 ```php
- 
+// Подключаем файл AutoRequire
 require __DIR__ . '/../vendor/AutoRequire.php';
+
+// Запускаем автозагрузку
 (new \AutoRequire\Autoloader)->run(__DIR__ . '/../vendor', __DIR__ . '/../vendor/auto_require_master.json');
  
 ```
