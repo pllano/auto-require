@@ -20,14 +20,13 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     $json = __DIR__ . '/vendor/auto_require.json';
  
     $load = $require->run($vendor, $json);
-	if (count($load) >= 1) {
-		foreach($load as $value)
-    {
-      // Регистрируем базовые каталоги и префиксы пространства имен
-      $require->addNamespace($value["class"], __DIR__ . '/vendor'.$value["dir"]);
-		}
-	}
- 
+    if (count($load) >= 1) {
+        foreach($load as $value)
+        {
+            // Регистрируем базовые каталоги и префиксы пространства имен
+            $require->addNamespace($value["class"], __DIR__ . '/vendor'.$value["dir"]);
+        }
+    }
 }
 ```
 <a name="feedback"></a>
