@@ -1,5 +1,5 @@
 # AutoRequire
-## Автозагрузка по стандартам PSR-0 и PSR-4 без Composer
+## Автозагрузка по стандартам PSR-0 и PSR-4 с или без Composer
 Если `Composer` не установлен и `autoload.php` недоступен `AutoRequire` позволяет автоматически загружать требуемые классы в момент их вызова, без использования таких конструкций как `require` и `include`. Все классы под полным вашим контролем.
 ## Оба стандарта автозагрузки PSR-0 и PSR-4 работают одновременно
 Теперь вы можете одновременно использовать оба класса автозагрузки `PSR-0` и `PSR-4`
@@ -20,6 +20,8 @@ $json_uri = __DIR__ . '/../vendor/auto_require_master.json';
  
 // Запускаем автозагрузку
 $require->run($vendor_dir, $json_uri);
+
+require __DIR__ . '/../vendor/autoload.php';
 ```
 Тоже самое с минимумом кода
 ```php
@@ -30,6 +32,27 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 (new \AutoRequire\Autoloader)->run(__DIR__ . '/../vendor', __DIR__ . '/../vendor/auto_require_master.json');
  
 ```
+## Использование паралельно Composer
+Для AutoRequire необходимо указать диреторию `vendor_dir` и ссылку на файл `auto_require.json`
+```php
+require __DIR__ . '/../vendor/AutoRequire.php';
+ 
+$require = new \AutoRequire\Autoloader;
+ 
+// Указываем путь к папке vendor
+$vendor_dir = __DIR__ . '/../vendor';
+ 
+// Указываем путь к auto_require.json
+$json_uri = __DIR__ . '/../vendor/auto_require_master.json';
+ 
+// Запускаем автозагрузку
+$require->run($vendor_dir, $json_uri);
+
+// Подключаем Composer
+require __DIR__ . '/../vendor/autoload.php';
+ 
+```
+
 Если необходимо подключить локальные пакеты, переместите их в директорию vendor_dir и подключите из auto_require.json
 ```json
 {
