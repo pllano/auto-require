@@ -114,6 +114,8 @@ $require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
 ```
 ## Стандарты автозагрузки PSR-0 + PSR-4
 Добавлена поддержка стандарта автозагрузки PSR-0
+- `autoloading` - активировать режим "psr-0"
+- `replace_name` - указать имя вендора которое используется во всех классах, пример "Twig"
 ```json
 {
     "require": [
@@ -124,12 +126,15 @@ $require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
             "name": "Twig",
             "version": "2.4.4",
             "vendor": "twig",
-            "autoloading": "psr-0"
+            "autoloading": "psr-0",
+            "replace_name": "Twig"
         }
     ]
 }
 ```
+### auto_require.json для API Shop
 https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
+
 ```json
 {
     "require": [
