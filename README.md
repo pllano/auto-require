@@ -33,17 +33,15 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
                 // Подключаем файл если этого требует пакет
                 require $vendor_dir.''.$value["dir"].'/'.$value["files"];
             }
-            if (isset($value["namespace"]) && isset($value["dir"])) {
-                if (isset($value["autoloading"])) {
-                    if ($value["autoloading"] == "psr-0") {
-                        // Регистрируем базовый каталог и префикс пространства имен PSR-0
-                        $require->setAutoloading($value["namespace"], $vendor_dir.''.$value["dir"]);
-                    }
-                } else {
-                    // Регистрируем базовый каталог и префикс пространства имен PSR-4
-                    // register the base directories for the namespace prefix
-                    $require->addNamespace($value["namespace"], $vendor_dir.''.$value["dir"]);
+            if (isset($value["autoloading"])&& isset($value["replace_name"]) && isset($value["dir"])) {
+                if ($value["autoloading"] == "psr-0") {
+                    // Регистрируем базовый каталог и префикс пространства имен PSR-0
+                    $require->setAutoloading($value["replace_name"], $vendor_dir.''.$value["dir"]);
                 }
+            } elseif (isset($value["namespace"]) && isset($value["dir"])) {
+                // Регистрируем базовый каталог и префикс пространства имен PSR-4
+                // register the base directories for the namespace prefix
+                $require->addNamespace($value["namespace"], $vendor_dir.''.$value["dir"]);
             }
         }
     }
