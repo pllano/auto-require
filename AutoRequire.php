@@ -67,59 +67,66 @@ class Autoloader
      * @var array
      */
     protected $prefixes = array();
+    
+    protected $replace_name = null;
+    protected $base_dir = null;
  
     // Ссылка на резервный файл auto_require.json
-    protected $file_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
+    protected $json_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
  
-    public function run($dir = null, $json = null, $file_get = null)
+    public function run($dir = null, $json = null, $json_get = null)
     {
         if ($dir != null && $json != null) {
             
             if (!file_exists($dir)) {
                 mkdir($dir, 0777, true);
             }
-            if ($file_get != null) {
-                $this->file_get = $file_get;
+            if ($json_get != null) {
+                $this->json_get = $json_get;
             }
-            if (!file_exists($json) && $this->file_get != null) {
-                file_put_contents($json, file_get_contents($this->file_get));
+            if (!file_exists($json) && $this->json_get != null) {
+                file_put_contents($json, file_get_contents($this->json_get));
             }
  
             $require = array();
  
             // Открываем файл json с параметрами класов
             $data = json_decode(file_get_contents($json), true);
- 
-             // Перебираем массив
-            foreach($data["require"] as $value)
-            {
-                // Если папки класса нет
-                if (!file_exists($dir."/".$value["vendor"].'/'.$value["name"])) {
+            if (count($data["require"]) >= 1) {
+                // Перебираем массив
+                foreach($data["require"] as $value)
+                {
+                    if (isset($value["vendor"]) && isset($value["name"])) {
+                    // Если папки класса нет необходимо скачать файлы
+                    if (!file_exists($dir."/".$value["vendor"].'/'.$value["name"])) {
                     // Если есть ссылка скачиваем архив
-                    if (isset($value["link"])) {
+                        if (isset($value["link"])) {
  
-                        file_put_contents($dir.'/'.$value["name"].".zip", file_get_contents($value["link"]));
+                            file_put_contents($dir.'/'.$value["name"].".zip", file_get_contents($value["link"]));
  
-                        $zip = new \ZipArchive;
-                        $res = $zip->open($dir.'/'.$value["name"].".zip");
-                        if ($res === TRUE) {
-                            //$zip->renameName('currentname.txt','newname.txt');
-                            $zip->extractTo($dir."/".$value["vendor"]);
-                            $zip->close();
+                            $zip = new \ZipArchive;
+                            $res = $zip->open($dir.'/'.$value["name"].".zip");
+                            if ($res === TRUE) {
+                                //$zip->renameName('currentname.txt','newname.txt');
+                                $zip->extractTo($dir."/".$value["vendor"]);
+                                $zip->close();
  
-                            rename($dir."/".$value["vendor"].'/'.$value["name"]."-".$value["version"],
-                                $dir."/".$value["vendor"].'/'.$value["name"]);
-                            unlink($dir.'/'.$value["name"].".zip");
+                                rename($dir."/".$value["vendor"].'/'.$value["name"]."-".$value["version"],
+                                    $dir."/".$value["vendor"].'/'.$value["name"]);
+                                unlink($dir.'/'.$value["name"].".zip");
  
-                        } else {
-                            // echo 'failed';
+                            } else {
+                                // echo 'failed';
+                            }
                         }
                     }
+                    
+                    }
+ 
+                    // Возвращаем массив с параметрами
+                    $require[] = $value;
+ 
                 }
- 
-                // Возвращаем массив с параметрами
-                $require[] = $value;
- 
             }
  
             return $require;
@@ -134,7 +141,43 @@ class Autoloader
      */
     public function register()
     {
+        //spl_autoload_register(array($this, 'autoload'));
         spl_autoload_register(array($this, 'loadClass'));
+ 
+        // Лекарство для Twig который работает с пространсвом имен PSR-0
+        spl_autoload_register(function ($class) {
+            // project-specific namespace prefix
+            $prefix = $this->replace_name;
+            // base directory for the namespace prefix
+            $base_dir = $this->base_dir;
+            // does the class use the namespace prefix?
+            $len = strlen($prefix);
+            if (strncmp($prefix, $class, $len) !== 0) {
+                // no, move to the next registered autoloader
+                return;
+            }
+            // get the relative class name
+            $relative_class = substr($class, $len);
+            // replace the namespace prefix with the base directory, replace namespace
+            // separators with directory separators in the relative class name, append
+            // with .php
+            $file = $base_dir . str_replace('_', '/', $relative_class) . '.php';
+            // if the file exists, require it
+            if (file_exists($file)) {
+                require $file;
+            }
+        });
+    }
+    
+    public function unregister()
+    {
+        spl_autoload_unregister(array($this, 'loadClass'));
+    }
+    
+    public function setAutoloading($replace_name, $base_dir)
+    {
+        $this->replace_name = $replace_name;
+        $this->base_dir = $base_dir;
     }
  
     /**
@@ -167,6 +210,21 @@ class Autoloader
         } else {
             array_push($this->prefixes[$prefix], $base_dir);
         }
+    }
+
+    public function autoload($className)
+    {
+        $className = ltrim($className, '\\');
+        $fileName  = '';
+        $namespace = '';
+        if ($lastNsPos = strrpos($className, '\\')) {
+            $namespace = substr($className, 0, $lastNsPos);
+            $className = substr($className, $lastNsPos + 1);
+            $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+        }
+        $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+ 
+        require $fileName;
     }
  
     /**

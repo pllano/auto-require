@@ -1,14 +1,14 @@
 {
     "require": [
         {
-            "namespace": "jsonDb",
+            "namespace": "jsonDB",
             "dir": "/pllano/json-db/src",
             "link": "https://github.com/pllano/json-db/archive/1.0.7.zip",
             "name": "json-db",
             "version": "1.0.7",
             "vendor": "pllano"
         }, {
-            "namespace": "routerDb",
+            "namespace": "RouterDb",
             "dir": "/pllano/router-db/src",
             "link": "https://github.com/pllano/router-db/archive/1.0.3.zip",
             "name": "router-db",
@@ -30,7 +30,7 @@
             "vendor": "psr"
         }, {
             "namespace": "Psr\\Log",
-            "dir": "/psr/log/src/Psr/Log",
+            "dir": "/psr/log/Psr/Log",
             "link": "https://github.com/php-fig/log/archive/1.0.2.zip",
             "name": "log",
             "version": "1.0.2",
@@ -44,7 +44,7 @@
             "vendor": "defuse"
         }, {
             "namespace": "GuzzleHttp",
-			"files": "functions_include.php",
+            "files": "functions_include.php",
             "dir": "/guzzlehttp/guzzle/src",
             "link": "https://github.com/guzzle/guzzle/archive/6.3.0.zip",
             "name": "guzzle",
@@ -52,6 +52,7 @@
             "vendor": "guzzlehttp"
         }, {
             "namespace": "GuzzleHttp\\Promise",
+            "files": "functions_include.php",
             "dir": "/guzzlehttp/promises/src",
             "link": "https://github.com/guzzle/promises/archive/v1.3.1.zip",
             "name": "promises",
@@ -59,6 +60,7 @@
             "vendor": "guzzlehttp"
         }, {
             "namespace": "GuzzleHttp\\Psr7",
+            "files": "functions_include.php",
             "dir": "/guzzlehttp/psr7/src",
             "link": "https://github.com/guzzle/psr7/archive/1.4.0.zip",
             "name": "psr7",
@@ -80,7 +82,7 @@
             "vendor": "adbario"
         }, {
             "namespace": "Interop\\Container",
-            "dir": "/container-interop/container-interop/src",
+            "dir": "/container-interop/container-interop/src/Interop/Container",
             "link": "https://github.com/container-interop/container-interop/archive/1.2.0.zip",
             "name": "container-interop",
             "version": "1.2.0",
@@ -94,7 +96,7 @@
             "vendor": "doctrine"
         }, {
             "namespace": "Imagine",
-            "dir": "/imagine/imagine/lib",
+            "dir": "/imagine/Imagine/lib",
             "link": "https://github.com/avalanche123/Imagine/archive/v0.7.1.zip",
             "name": "Imagine",
             "version": "0.7.1",
@@ -108,21 +110,22 @@
             "vendor": "monolog"
         }, {
             "namespace": "DeepCopy",
-			"files": "deep_copy.php",
-            "dir": "/myclabs/deep-copy/src/DeepCopy",
+            "files": "deep_copy.php",
+            "dir": "/myclabs/DeepCopy/src/DeepCopy",
             "link": "https://github.com/myclabs/DeepCopy/archive/1.7.0.zip",
             "name": "DeepCopy",
             "version": "1.7.0",
             "vendor": "myclabs"
         }, {
             "namespace": "FastRoute",
-            "dir": "/nikic/fast-route/src",
+            "files": "functions.php",
+            "dir": "/nikic/FastRoute/src",
             "link": "https://github.com/nikic/FastRoute/archive/v1.2.0.zip",
             "name": "FastRoute",
             "version": "1.2.0",
             "vendor": "nikic"
         }, {
-			"files": "random.php",
+            "files": "random.php",
             "dir": "/paragonie/random_compat/lib",
             "link": "https://github.com/paragonie/random_compat/archive/v2.0.11.zip",
             "name": "random_compat",
@@ -130,21 +133,21 @@
             "vendor": "paragonie"
         }, {
             "namespace": "phpDocumentor\\Reflection",
-            "dir": "/phpdocumentor/reflection-common/src",
+            "dir": "/phpdocumentor/ReflectionCommon/src",
             "link": "https://github.com/phpDocumentor/ReflectionCommon/archive/1.0.1.zip",
             "name": "ReflectionCommon",
             "version": "1.0.1",
             "vendor": "phpdocumentor"
         }, {
             "namespace": "phpDocumentor\\Reflection",
-            "dir": "/phpdocumentor/reflection-docblock/src",
+            "dir": "/phpdocumentor/ReflectionDocBlock/src",
             "link": "https://github.com/phpDocumentor/ReflectionDocBlock/archive/4.2.0.zip",
             "name": "ReflectionDocBlock",
             "version": "4.2.0",
             "vendor": "phpdocumentor"
         }, {
             "namespace": "phpDocumentor\\Reflection",
-            "dir": "/phpdocumentor/type-resolver/src",
+            "dir": "/phpdocumentor/TypeResolver/src",
             "link": "https://github.com/phpDocumentor/TypeResolver/archive/0.5.0.zip",
             "name": "TypeResolver",
             "version": "0.5.0",
@@ -158,7 +161,7 @@
             "vendor": "phpspec"
         }, {
             "namespace": "Pimple",
-            "dir": "/pimple/pimple/src/Pimple",
+            "dir": "/pimple/Pimple/src/Pimple",
             "link": "https://github.com/silexphp/Pimple/archive/v3.2.2.zip",
             "name": "Pimple",
             "version": "3.2.2",
@@ -242,14 +245,14 @@
             "vendor": "sebastian"
         }, {
             "namespace": "Sinergi\\BrowserDetector",
-            "dir": "/sinergi/browser-detector/src",
+            "dir": "/sinergi/php-browser-detector/src",
             "link": "https://github.com/sinergi/php-browser-detector/archive/6.1.2.zip",
             "name": "php-browser-detector",
             "version": "6.1.2",
             "vendor": "sinergi"
         }, {
             "namespace": "Slim",
-            "dir": "/slim/slim/Slim",
+            "dir": "/slim/Slim/Slim",
             "link": "https://github.com/slimphp/Slim/archive/3.9.2.zip",
             "name": "Slim",
             "version": "3.9.2",
@@ -284,11 +287,12 @@
             "vendor": "theseer"
         }, {
             "namespace": "Twig",
-            "dir": "/twig/twig/src",
+            "dir": "/twig/Twig/lib/Twig",
             "link": "https://github.com/twigphp/Twig/archive/v2.4.4.zip",
             "name": "Twig",
             "version": "2.4.4",
-            "vendor": "twig"
+            "vendor": "twig",
+			"autoloading": "psr-0"
         }, {
             "namespace": "Webmozart\\Assert",
             "dir": "/webmozart/assert/src",
