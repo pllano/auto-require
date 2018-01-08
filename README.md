@@ -29,6 +29,50 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     }
 }
 ```
+## auto_require.json
+```json
+{
+    "require": [
+        {
+            "namespace": "jsonDb",
+            "dir": "/pllano/json-db/src",
+            "link": "https://github.com/pllano/json-db/archive/1.0.7.zip",
+            "name": "json-db",
+            "version": "1.0.7",
+            "vendor": "pllano"
+        }, {
+            "namespace": "routerDb",
+            "dir": "/pllano/router-db/src",
+            "link": "https://github.com/pllano/router-db/archive/1.0.3.zip",
+            "name": "router-db",
+            "version": "1.0.3",
+            "vendor": "pllano"
+        }, {
+            "namespace": "Psr\\Http\\Message",
+            "dir": "/psr/http-message/src",
+            "link": "https://github.com/php-fig/http-message/archive/1.0.zip",
+            "name": "http-message",
+            "version": "1.0",
+            "vendor": "psr"
+        }, {
+            "namespace": "Defuse\\Crypto",
+            "dir": "/defuse/php-encryption/src",
+            "link": "https://github.com/defuse/php-encryption/archive/v2.1.0.zip",
+            "name": "php-encryption",
+            "version": "2.1.0",
+            "vendor": "defuse"
+        }, {
+            "namespace": "GuzzleHttp",
+            "dir": "/guzzlehttp/guzzle/src",
+            "link": "https://github.com/guzzle/guzzle/archive/6.3.0.zip",
+            "name": "guzzle",
+            "version": "6.3.0",
+            "vendor": "guzzlehttp"
+        }
+    ]
+    
+}
+```
 <a name="feedback"></a>
 ## Поддержка, обратная связь, новости
 Общайтесь с нами через почту open.source@pllano.com
