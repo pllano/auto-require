@@ -104,68 +104,6 @@ https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
     ]
 }
 ```
-## public function run
-Функция дорабатывается
-```php
-    // Ссылка на резервный файл auto_require.json
-    protected $file_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
- 
-    public function run($dir = null, $json = null, $file_get = null)
-    {
-        if ($dir != null && $json != null) {
-            
-            if (!file_exists($dir)) {
-                mkdir($dir, 0777, true);
-            }
-            if ($file_get != null) {
-                $this->file_get = $file_get;
-            }
-            if (!file_exists($json) && $this->file_get != null) {
-                file_put_contents($json, file_get_contents($this->file_get));
-            }
- 
-            $require = array();
- 
-            // Открываем файл json с параметрами класов
-            $data = json_decode(file_get_contents($json), true);
- 
-             // Перебираем массив
-            foreach($data["require"] as $value)
-            {
-                // Если папки класса нет
-                if (!file_exists($dir."/".$value["vendor"].'/'.$value["name"])) {
-                    // Если есть ссылка скачиваем архив
-                    if (isset($value["link"])) {
- 
-                        file_put_contents($dir.'/'.$value["name"].".zip", file_get_contents($value["link"]));
- 
-                        $zip = new \ZipArchive;
-                        $res = $zip->open($dir.'/'.$value["name"].".zip");
-                        if ($res === TRUE) {
-                            //$zip->renameName('currentname.txt','newname.txt');
-                            $zip->extractTo($dir."/".$value["vendor"]);
-                            $zip->close();
- 
-                            rename($dir."/".$value["vendor"].'/'.$value["name"]."-".$value["version"],
-                                $dir."/".$value["vendor"].'/'.$value["name"]);
-                            unlink($dir.'/'.$value["name"].".zip");
- 
-                        } else {
-                            // echo 'failed';
-                        }
-                    }
-                }
- 
-                // Возвращаем массив с параметрами
-                $require[] = $value;
- 
-            }
- 
-            return $require;
- 
-        }
-    }
-```
 <a name="feedback"></a>
 ## Поддержка, обратная связь, новости
 Общайтесь с нами через почту open.source@pllano.com
