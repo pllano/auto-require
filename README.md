@@ -40,6 +40,21 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
 {
     "require": [
         {
+            "namespace": "Vendor\NameClass",
+            "dir": "/vendor/name-class/src",
+            "link": "https://github.com/vendor/name-class/archive/1.0.1.zip",
+            "name": "name-class",
+            "version": "1.0.1",
+            "vendor": "vendor"
+        }
+    ]
+}
+```
+https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
+```json
+{
+    "require": [
+        {
             "namespace": "jsonDb",
             "dir": "/pllano/json-db/src",
             "link": "https://github.com/pllano/json-db/archive/1.0.7.zip",
@@ -76,7 +91,6 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
             "vendor": "guzzlehttp"
         }
     ]
-    
 }
 ```
 ## public function run
