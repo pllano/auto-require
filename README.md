@@ -1,5 +1,5 @@
 # auto-require
-AutoRequire - Автоматическая загрузка (PSR4) пакетов без Composer
+AutoRequire - Автоматическая загрузка пакетов согластно PSR4 без Composer
 ## Использование
 ```php
 // Подключаем \AutoRequire\Autoloader
