@@ -98,6 +98,7 @@ https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json
 }
 ```
 ## public function run
+Функция дорабатывается
 ```php
     // Ссылка на резервный файл auto_require.json
     protected $file_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
