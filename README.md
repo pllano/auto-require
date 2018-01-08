@@ -14,9 +14,9 @@ $require = new \AutoRequire\Autoloader;
 // Зарегистрировать автозагрузчик
 $require->register();
  
-// Check Availability autoload.php
 // Проверяем доступность autoload.php
-if (file_exists(__DIR__ . '/../vendor/autoload.php')){
+// Check Availability autoload.php
+if (!file_exists(__DIR__ . '/../vendor/autoload.php')){
     require __DIR__ . '/../vendor/autoload.php';
 } else {
     // Если autoload.php не найден, подключаем автозагрузчик пакетов
@@ -29,9 +29,15 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     if (count($load) >= 1) {
         foreach($load as $value)
         {
-            // register the base directories for the namespace prefix
-            // Регистрируем базовые каталоги и префиксы пространства имен
-            $require->addNamespace($value["namespace"], $vendor.''.$value["dir"]);
+            if (isset($value["files"]) && isset($value["dir"])) {
+                // Подключаем файл если этого требует пакет
+                require $vendor.''.$value["dir"].'/'.$value["files"];
+            }
+            if (isset($value["namespace"]) && isset($value["dir"])) {
+                // Регистрируем базовый каталог и префикс пространства имен
+                // register the base directories for the namespace prefix
+                $require->addNamespace($value["namespace"], $vendor.''.$value["dir"]);
+            }
         }
     }
 }
