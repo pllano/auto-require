@@ -1,7 +1,11 @@
-# AutoRequire - Автозагрузка по стандартам PSR-0 и PSR-4 если без Composer
+# AutoRequire - Автозагрузка PSR-0 и PSR-4
+## Автозагрузка по стандартам PSR-0 и PSR-4 если без Composer
+Если Composer не установлен и 'autoload.php' недоступен AutoRequire позволяет автоматически загружать требуемые классы в момент их вызова, без использования таких конструкций как require и include. Все классы под полным вашим контролем.
 ## Оба стандарта автозагрузки PSR-0 и PSR-4 работают одновременно
+Теперь вы можете одновременно использовать оба класса автозагрузки PSR-0 и PSR-4 - с AutoRequire они работают одновременно.
 
 ## Использование
+Для AutoRequire необходимо указать диреторию vendor_dir и ссылку на файл auto_require.json
 ```php
 // Подключаем \AutoRequire\Autoloader
 // Connect \AutoRequire\Autoloader
@@ -61,8 +65,6 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     }
 }
 ```
-Для AutoRequire необходимо указать диреторию vendor_dir и ссылку на файл auto_require.json
-
 Если необходимо подключить локальные пакеты из другой директории, укажите их явно
 ```php
 $require->addNamespace('YourName', __DIR__ . '/your-name/your-class');
