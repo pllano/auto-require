@@ -128,8 +128,31 @@ class Autoloader
  
                 }
             }
+			
+			// register the autoloader
+			$this->register();
  
-            return $require;
+            if (count($require) >= 1) {
+                foreach($require as $value)
+                {
+                    if (isset($value["files"]) && isset($value["dir"])) {
+                        // Подключаем файл если этого требует пакет
+                        require $dir.''.$value["dir"].'/'.$value["files"];
+                    }
+                    if (isset($value["autoloading"])&& isset($value["replace_name"]) && isset($value["dir"])) {
+                        if ($value["autoloading"] == "psr-0") {
+                            // Регистрируем базовый каталог и префикс пространства имен PSR-0
+                            $this->setAutoloading($value["replace_name"], $dir.''.$value["dir"]);
+                        }
+                    } elseif (isset($value["namespace"]) && isset($value["dir"])) {
+                        // Регистрируем базовый каталог и префикс пространства имен PSR-4
+                        // register the base directories for the namespace prefix
+                        $this->addNamespace($value["namespace"], $dir.''.$value["dir"]);
+                    }
+                }
+            }
+ 
+            //return $require;
  
         }
     }
