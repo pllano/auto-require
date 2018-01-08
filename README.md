@@ -21,11 +21,11 @@ if (!file_exists(__DIR__ . '/../vendor/autoload.php')){
 } else {
     // Если autoload.php не найден, подключаем автозагрузчик пакетов
     // Указываем путь к папке vendor
-    $vendor = __DIR__ . '/vendor';
+    $vendor_dir = __DIR__ . '/vendor';
     // Указываем путь к auto_require.json
-    $json = __DIR__ . '/vendor/auto_require.json';
+    $json_uri = __DIR__ . '/vendor/auto_require.json';
     // Запускаем проверку или загрузку пакетов
-    $load = $require->run($vendor, $json);
+    $load = $require->run($vendor_dir, $json_uri);
     if (count($load) >= 1) {
         foreach($load as $value)
         {
@@ -42,7 +42,9 @@ if (!file_exists(__DIR__ . '/../vendor/autoload.php')){
     }
 }
 ```
-Подключаем локальные пакеты
+Для AutoRequire необходимо указать диреторию vendor_dir и ссылку на файл auto_require.json
+
+Если необходимо подключить локальные пакеты из другой директории, укажите их явно, или переместите в директорию vendor_dir
 ```php
 $require->addNamespace('ApiShop', __DIR__ . '/app/classes');
 ```
