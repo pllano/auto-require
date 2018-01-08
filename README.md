@@ -21,10 +21,12 @@ $json_uri = __DIR__ . '/vendor/auto_require_master.json';
 // Запускаем проверку или загрузку пакетов
 $require->run($vendor_dir, $json_uri);
 ```
-Тое самое с минимумом кода
+Тоже самое с минимумом кода
 ```php
+ 
 require __DIR__ . '/vendor/AutoRequire.php';
 (new \AutoRequire\Autoloader)->run(__DIR__ . '/vendor', __DIR__ . '/vendor/auto_require_master.json');
+ 
 ```
 Если необходимо подключить локальные пакеты из другой директории, укажите их явно
 ```php
