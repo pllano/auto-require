@@ -24,7 +24,7 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
         foreach($load as $value)
         {
             // Регистрируем базовые каталоги и префиксы пространства имен
-            $require->addNamespace($value["class"], __DIR__ . '/vendor'.$value["dir"]);
+            $require->addNamespace($value["class"], $vendor.''.$value["dir"]);
         }
     }
 }
