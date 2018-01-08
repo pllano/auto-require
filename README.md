@@ -81,8 +81,8 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
 ```
 ## public function run
 ```php
-// Ссылка на резервный файл auto_require.json
-protected $file_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
+    // Ссылка на резервный файл auto_require.json
+    protected $file_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
  
     public function run($dir = null, $json = null, $file_get = null)
     {
