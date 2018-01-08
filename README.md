@@ -35,18 +35,18 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 ## Использование паралельно Composer
 Для AutoRequire необходимо указать диреторию `vendor_dir` и ссылку на файл `auto_require.json`
 ```php
-require __DIR__ . '/../vendor/AutoRequire.php';
+require __DIR__ . '/../my_folder/AutoRequire.php';
  
 $require = new \AutoRequire\Autoloader;
  
 // Указываем путь к папке vendor
-$vendor_dir = __DIR__ . '/../vendor';
+$my_folder = __DIR__ . '/../my_folder';
  
 // Указываем путь к auto_require.json
-$json_uri = __DIR__ . '/../vendor/auto_require_master.json';
+$json_uri = __DIR__ . '/../my_folder/auto_require_master.json';
  
 // Запускаем автозагрузку
-$require->run($vendor_dir, $json_uri);
+$require->run($my_folder, $json_uri);
 
 // Подключаем Composer
 require __DIR__ . '/../vendor/autoload.php';
