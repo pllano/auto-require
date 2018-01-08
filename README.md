@@ -3,13 +3,19 @@
 ## Использование
 ```php
 // Подключаем \AutoRequire\Autoloader
+// Connect \AutoRequire\Autoloader
 require __DIR__ . '/vendor/AutoRequire.php';
+ 
+// instantiate the loader
 // Создать экземпляр загрузчика
 $require = new \AutoRequire\Autoloader;
+ 
+// register the autoloader
 // Зарегистрировать автозагрузчик
 $require->register();
  
-// Проверяем наличие autoload.php
+// Check Availability autoload.php
+// Проверяем доступность autoload.php
 if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     require __DIR__ . '/../vendor/autoload.php';
 } else {
@@ -23,6 +29,7 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')){
     if (count($load) >= 1) {
         foreach($load as $value)
         {
+            // register the base directories for the namespace prefix
             // Регистрируем базовые каталоги и префиксы пространства имен
             $require->addNamespace($value["namespace"], $vendor.''.$value["dir"]);
         }
