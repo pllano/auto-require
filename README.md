@@ -34,6 +34,8 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 ```
 ## Использование паралельно Composer
 Для AutoRequire необходимо указать диреторию `my_folder` и ссылку на файл `auto_require.json`
+
+`my_folder` - вы можете использовать любую директорию для хранения классов
 ```php
 require __DIR__ . '/../my_folder/AutoRequire.php';
  
