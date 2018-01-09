@@ -20,8 +20,7 @@ $json_uri = __DIR__ . '/../vendor/auto_require_master.json';
  
 // Запускаем автозагрузку
 $require->run($vendor_dir, $json_uri);
-
-require __DIR__ . '/../vendor/autoload.php';
+ 
 ```
 Тоже самое с минимумом кода
 ```php
