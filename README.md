@@ -54,7 +54,7 @@ require __DIR__ . '/../vendor/autoload.php';
  
 ```
 
-Если необходимо подключить локальные пакеты, переместите их в директорию vendor_dir и подключите из auto_require.json
+Если необходимо подключить локальные пакеты, переместите их в директорию `vendor_dir` или `my_folder` и подключите из auto_require.json
 ```json
 {
     "require": [
