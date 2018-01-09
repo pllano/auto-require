@@ -123,12 +123,11 @@ class Autoloader
                     
                     }
  
-                    // Возвращаем массив с параметрами
                     $require[] = $value;
  
                 }
             }
-			
+ 
 			// register the autoloader
 			$this->register();
  
@@ -151,8 +150,6 @@ class Autoloader
                     }
                 }
             }
- 
-            //return $require;
  
         }
     }
