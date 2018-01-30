@@ -186,6 +186,7 @@ class Autoloader
         }
     }
  
+    // Загрузка и преобразование в массив файла auto_require.json
     public function get()
     {
         if (file_exists($this->json)) {
