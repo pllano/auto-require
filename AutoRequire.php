@@ -93,8 +93,6 @@ class Autoloader
             $require = array();
             // Открываем файл json с параметрами класов
             $data = $this->get();
-            // Подключаем архиватор
-            $zip = new \ZipArchive;
  
             // Обновляем пакеты
             if (isset($data["update"])) {
@@ -183,6 +181,8 @@ class Autoloader
     public function load($link, $dir, $name, $vendor, $version)
     {
         file_put_contents($dir.'/'.$name.".zip", file_get_contents($link));
+		// Подключаем архиватор
+        $zip = new \ZipArchive;
         $res = $zip->open($dir.'/'.$name.".zip");
         if ($res === TRUE) {
             $zip->extractTo($dir."/".$vendor);
