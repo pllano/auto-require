@@ -70,7 +70,7 @@ class Autoloader
     protected $base_dir = null;
     // Ссылка на резервный файл auto_require.json
     protected $json_get = "https://raw.githubusercontent.com/pllano/auto-require/master/auto_require.json";
-    protected $repository = "https://raw.githubusercontent.com/pllano/auto-require/master/repository.json";
+    protected $repository = "https://raw.githubusercontent.com/pllano/auto-require/master/repository";
     private $dir = null;
     private $json = null;
  
