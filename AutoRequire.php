@@ -132,7 +132,7 @@ class Autoloader
                     {
                         if (isset($value["vendor"]) && isset($value["name"])) {
                             if ($value["state"] != '0' && $value["state"] != '') {
-                            // Если папки класса нет необходимо скачать файлы
+                                // Если папки класса нет необходимо скачать файлы
                                 if (!file_exists($this->dir."/".$value["vendor"].'/'.$value["name"])) {
                                 // Если есть ссылка скачиваем архив
                                     if (isset($value["link"])) {
