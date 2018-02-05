@@ -10,7 +10,7 @@
 ```php
 require __DIR__ . '/../vendor/AutoRequire.php';
  
-$require = new \Pllano\AutoRequire\Autoloader;
+$require = new \Pllano\AutoRequire\Autoloader();
  
 // Указываем путь к папке vendor
 $vendor_dir = __DIR__ . '/../vendor';
@@ -38,7 +38,7 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 ```php
 require __DIR__ . '/../my_folder/AutoRequire.php';
  
-$require = new \Pllano\AutoRequire\Autoloader;
+$require = new \Pllano\AutoRequire\Autoloader();
  
 // Указываем путь к папке где вы будете хранить классы
 $my_folder = __DIR__ . '/../my_folder';
