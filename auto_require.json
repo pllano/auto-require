@@ -19,11 +19,31 @@
             "state": "1",
             "system_package": "1"
         }, {
-            "namespace": "RouterDb",
+            "namespace": "Pllano\\RouterDb",
             "dir": "/pllano/router-db/src",
             "link": "https://github.com/pllano/router-db/archive/master.zip",
             "git": "https://github.com/pllano/router-db",
             "name": "router-db",
+            "version": "master",
+            "vendor": "pllano",
+            "state": "1",
+            "system_package": "1"
+        }, {
+            "namespace": "Pllano\\Caching",
+            "dir": "/pllano/cache/src",
+            "link": "https://github.com/pllano/cache/archive/master.zip",
+            "git": "https://github.com/pllano/cache",
+            "name": "cache",
+            "version": "master",
+            "vendor": "pllano",
+            "state": "1",
+            "system_package": "1"
+        }, {
+            "namespace": "Pllano\\Hooks",
+            "dir": "/pllano/hooks/src",
+            "link": "https://github.com/pllano/hooks/archive/master.zip",
+            "git": "https://github.com/pllano/hooks",
+            "name": "hooks",
             "version": "master",
             "vendor": "pllano",
             "state": "1",
@@ -453,7 +473,7 @@
             "vendor": "cache",
             "state": "1",
             "system_package": "0"
-	}, {
+        }, {
             "namespace": "Predis",
             "dir": "/predis/predis/src",
             "link": "https://github.com/nrk/predis/archive/v1.1.1.zip",
@@ -463,7 +483,7 @@
             "vendor": "predis",
             "state": "1",
             "system_package": "0"
-	}, {
+        }, {
             "namespace": "MongoDB",
             "dir": "/mongodb/mongo-php-library/src",
             "link": "https://github.com/mongodb/mongo-php-library/archive/1.2.0.zip",
@@ -473,7 +493,7 @@
             "vendor": "mongodb",
             "state": "1",
             "system_package": "0"
-	}
+        }
     ]
 
 }
