@@ -3,10 +3,10 @@
 		"slim.slim": {
 			"namespace": "Slim",
 			"dir": "\/slim\/Slim\/Slim",
-			"link": "https:\/\/github.com\/slimphp\/Slim\/archive\/3.9.2.zip",
+			"link": "https:\/\/github.com\/slimphp\/Slim\/archive\/4.x.zip",
 			"git": "https:\/\/github.com\/slimphp\/Slim",
 			"name": "Slim",
-			"version": "3.9.2",
+			"version": "4.x",
 			"vendor": "slim",
 			"state": 1,
 			"system_package": 1,
@@ -16,6 +16,18 @@
 				"addContentLengthHeader": 0,
 				"determineRouteBeforeAppMiddleware": 1
 			}
+		},
+		"slim.slim-http": {
+			"namespace": "Slim\\Http",
+			"dir": "\/slim\/Slim-Http\/src",
+			"link": "https://github.com/slimphp/Slim-Http/archive/master.zip",
+			"git": "https://github.com/slimphp/Slim-Http",
+			"name": "Slim-Http",
+			"version": "master",
+			"vendor": "slim",
+			"state": 1,
+			"system_package": 1,
+			"settings": {}
 		},
 		"monolog.monolog": {
 			"namespace": "Monolog",
@@ -63,7 +75,7 @@
 				"relations": "image"
 			},
 			"install": {
-			    "modules": {
+				"modules": {
 					"block": "index",
 					"module": "products_action",
 					"vendor": "\\ApiShop\\Modules\\Products\\ProductsAction",
@@ -72,8 +84,8 @@
 				},
 				"files": {
 					"view": {
-					    "take_here": "view\/products_action.html",
-					    "put_here": "modules\/products",
+						"take_here": "view\/products_action.html",
+						"put_here": "modules\/products",
 						"put_name": "products_action.html"
 					}
 				}
@@ -533,10 +545,10 @@
 		"pimple.Pimple": {
 			"namespace": "Pimple",
 			"dir": "\/pimple\/Pimple\/src\/Pimple",
-			"link": "https:\/\/github.com\/silexphp\/Pimple\/archive\/v3.2.2.zip",
+			"link": "https:\/\/github.com\/silexphp\/Pimple\/archive\/v3.2.3.zip",
 			"git": "https:\/\/github.com\/silexphp\/Pimple",
 			"name": "Pimple",
-			"version": "3.2.2",
+			"version": "3.2.3",
 			"vendor": "pimple",
 			"state": 1,
 			"system_package": 1

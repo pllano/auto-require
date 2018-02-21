@@ -298,7 +298,7 @@ class Autoloader
     */
     public function register()
     {
-        //spl_autoload_register(array($this, 'autoload'));
+        //spl_autoload_register([$this, 'autoload']);
         spl_autoload_register([$this, 'loadClass']);
  
         // Лекарство для Twig который работает с пространсвом имен PSR-0
