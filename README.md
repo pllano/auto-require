@@ -43,6 +43,8 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 - `vendor` - Directory name vendor
 - `version` - Package version
 ## Examples
+### auto_require.json
+[auto_require.json](https://github.com/pllano/auto-require/blob/master/auto_require.json)
 ### Your Class
 ```json
 {
