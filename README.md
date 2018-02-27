@@ -104,7 +104,7 @@ require __DIR__ . '/../vendor/AutoRequire.php';
         "addContentLengthHeader": 0,
         "determineRouteBeforeAppMiddleware": 1
     }
-		}
+}
 ```
 <a name="feedback"></a>
 ## Support, feedback, news
