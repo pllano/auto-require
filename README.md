@@ -37,7 +37,7 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 ## auto_require.json
 - `namespace` - Namespace
 - `files` - File name
-- `dir` - Директория в которой после распаковки архива будут файлы пакета
+- `dir` - The directory in which, after unpacking the archive, there will be package files
 - `link` - Direct link to the zip package archive
 - `name` - Directory name package
 - `vendor` - Directory name vendor
