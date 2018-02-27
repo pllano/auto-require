@@ -34,7 +34,16 @@ require __DIR__ . '/../vendor/AutoRequire.php';
 // Start Autoloader
 (new \AutoRequire\Autoloader)->run(__DIR__ . '/../vendor', __DIR__ . '/../vendor/auto_require.json');
 ```
-Your Class
+## auto_require.json
+- `namespace` - Namespace
+- `files` - File name
+- `dir` - Директория в которой после распаковки архива будут файлы пакета
+- `link` - Direct link to the zip package archive
+- `name` - Directory name package
+- `vendor` - Directory name vendor
+- `version` - Package version
+## Examples
+### Your Class
 ```json
 {
     "require": [
@@ -45,7 +54,7 @@ Your Class
     ]
 }
 ```
-Connect file
+### Connect file
 ```json
 {
     "require": [
@@ -56,14 +65,7 @@ Connect file
     ]
 }
 ```
-## auto_require.json
-- `namespace` - Namespace
-- `files` - File name
-- `dir` - Директория в которой после распаковки архива будут файлы пакета
-- `link` - Direct link to the zip package archive
-- `name` - Directory name package
-- `vendor` - Directory name vendor
-- `version` - Package version
+### Connect package
 ```json
 {
     "require": [
@@ -84,7 +86,7 @@ Connect file
     ]
 }
 ```
-
+### Connect Slim 4
 ```json
 "slim.slim": {
     "namespace": "Slim",
