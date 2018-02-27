@@ -14,7 +14,7 @@ $require = new \Pllano\AutoRequire\Autoloader();
 // Specify the path to the vendor folder
 $vendor_dir = __DIR__ . '/../vendor';
 // Specify the path to auto_require.json
-$json_uri = __DIR__ . '/../vendor/auto_require_master.json';
+$json_uri = __DIR__ . '/../vendor/auto_require.json';
 // Start Autoloader
 $require->run($vendor_dir, $json_uri);
  
@@ -24,7 +24,7 @@ The same with the minimum code
 // Connect the AutoRequire file
 require __DIR__ . '/../vendor/AutoRequire.php';
 // Start Autoloader
-(new \AutoRequire\Autoloader)->run(__DIR__ . '/../vendor', __DIR__ . '/../vendor/auto_require_master.json');
+(new \AutoRequire\Autoloader)->run(__DIR__ . '/../vendor', __DIR__ . '/../vendor/auto_require.json');
 ```
 ## Использование AutoRequire паралельно с Composer
 Для AutoRequire необходимо указать диреторию `my_folder` и ссылку на файл `auto_require.json`
