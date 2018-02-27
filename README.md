@@ -74,7 +74,7 @@ Connect file
             "git": "",
             "name": "class-name",
             "version": "1.0.1",
-            "vendor": "vendor-name"
+            "vendor": "vendor-name",
             "state": 1,
             "system_package": 1,
             "settings": {
