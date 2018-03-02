@@ -7,9 +7,9 @@ define("CORE_PATH", APP_PATH . '/core/');
 
 // Looking for the path to the vendor folder
 if (file_exists(APP_PATH . '/vendor')) {
-	define("VENDOR_PATH", BASE_PATH . '/vendor');
+    define("VENDOR_PATH", BASE_PATH . '/vendor');
 } elseif (APP_PATH . '/../vendor') {
-	define("VENDOR_PATH", BASE_PATH . '/../vendor');
+    define("VENDOR_PATH", BASE_PATH . '/../vendor');
 }
 
 // Specify the path to the file AutoRequire
@@ -27,7 +27,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
     $require = new \Pllano\AutoRequire\Autoloader();
     // Start AutoRequire\Autoloader
     $require->run(VENDOR_PATH, $auto_require);
-	$require->addNamespace('\App\Core', CORE_PATH);
+    $require->addNamespace('\App\Core', CORE_PATH);
     
 }
 ```
