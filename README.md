@@ -2,8 +2,8 @@
 ## Autoload to PSR-0 and PSR-4 standards without Composer
 ```php
 define("BASE_PATH", dirname(__FILE__));
-define("APP_PATH", BASE_PATH . '/../');
-define("CORE_PATH", APP_PATH . '/core/');
+define("APP_PATH", BASE_PATH . '/..');
+define("CORE_PATH", APP_PATH . '/core');
 
 // Looking for the path to the vendor folder
 if (file_exists(APP_PATH . '/vendor')) {
