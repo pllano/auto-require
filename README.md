@@ -27,6 +27,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
     $require = new \Pllano\AutoRequire\Autoloader();
     // Start AutoRequire\Autoloader
     $require->run(VENDOR_PATH, $auto_require);
+    // Additionally, register your namespace
     $require->addNamespace('\App\Core', CORE_PATH);
     
 }
