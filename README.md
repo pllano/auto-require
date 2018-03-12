@@ -2,28 +2,33 @@
 ## Autoload to PSR-0 and PSR-4 standards without Composer
 ```php
 define("BASE_PATH", dirname(__FILE__));
-$vendor_dir = '';
+define("APP_PATH", BASE_PATH . '/..');
+define("CORE_PATH", APP_PATH . '/core');
 
 // Looking for the path to the vendor folder
-if (file_exists(BASE_PATH . '/vendor')) {
-    $vendor_dir = BASE_PATH . '/vendor';
-} elseif (BASE_PATH . '/../vendor') {
-    $vendor_dir = BASE_PATH . '/../vendor';
+if (file_exists(APP_PATH . '/vendor')) {
+    define("VENDOR_PATH", BASE_PATH . '/vendor');
+} elseif (APP_PATH . '/../vendor') {
+    define("VENDOR_PATH", BASE_PATH . '/../vendor');
 }
 
 // Specify the path to the file AutoRequire
-$autoRequire = $vendor_dir.'/AutoRequire.php';
+$autoRequire = VENDOR_PATH .'/AutoRequire.php';
 // Specify the path to the file auto_require.json
-$auto_require = $vendor_dir.'/auto_require.json';
- 
+$auto_require = VENDOR_PATH .'/auto_require.json';
+
 if (file_exists($autoRequire) && file_exists($auto_require)) {
 
+    // We get the list and configuration of packages
+    $package = json_decode(file_get_contents($auto_require), true);
     // Connect \Pllano\AutoRequire\Autoloader
     require $autoRequire;
     // instantiate the loader
     $require = new \Pllano\AutoRequire\Autoloader();
     // Start AutoRequire\Autoloader
-    $require->run($vendor_dir, $auto_require);
+    $require->run(VENDOR_PATH, $auto_require);
+    // Additionally, register your namespace
+    $require->addNamespace('\App\Core', CORE_PATH);
     
 }
 ```
